@@ -1,23 +1,26 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Portal from '../views/general/Portal.vue'
+import Login from '../views/general/Login.vue'
+import Inicio from '../views/general/Inicio.vue'
+import Portafolios from '../views/general/Portafolios.vue'
+
+import ModuloAdministracion from '../views/administracion/ModuloAdministracion.vue'
+import ModuloUsuarios from '../views/administracion/ModuloUsuarios.vue'
+import ABMUsuarios from '../views/administracion/ABMUsuarios.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  { path: '/', redirect: '/Portal' },
+  { path: '/Portal', name: 'Portal', component: Portal },
+  { path: '/Login', name: 'Login', component: Login },
+  { path: '/Inicio', name: 'Inicio', component: Inicio },
+  { path: '/Portafolios', name: 'Portafolios', component: Portafolios },
+  { path: '/Administracion', name: 'ModuloAdministracion', component: ModuloAdministracion },
+  { path: '/Administracion/Usuarios', name: 'ModuloUsuarios', component: ModuloUsuarios },
+  { path: '/Administracion/Usuarios/Alta', name: 'AltaUsuario', component: ABMUsuarios },
+
 ]
 
 const router = new VueRouter({
